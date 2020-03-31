@@ -1,0 +1,13 @@
+﻿30
+3
+600
+150
+50
+50
+50
+50
+COM4
+2
+d:\Users\M\Desktop\g codes\L1 Dec1st.gcode
+d:\Users\M\Desktop\L1 Images\origin
+d:\Users\M\Desktop\L1 Images\test1
