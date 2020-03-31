@@ -1,1 +1,1 @@
-Automated optical inspection
+Automated Optical Inspection
