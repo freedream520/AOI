@@ -81,11 +81,9 @@
             this.cbLowResolution = new MaterialSkin.Controls.MaterialCheckBox();
             this.reportSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.materialContextMenuStrip2 = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialContextMenuStrip3 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialContextMenuStrip4 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCalirate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -104,6 +102,7 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.materialContextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -965,43 +964,29 @@
             // 
             this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.materialContextMenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(108, 26);
             // 
-            // materialContextMenuStrip2
+            // toolStripMenuItem1
             // 
-            this.materialContextMenuStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip2.Depth = 0;
-            this.materialContextMenuStrip2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip2.Name = "materialContextMenuStrip2";
-            this.materialContextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.toolStripMenuItem1.Text = "About";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // dToolStripMenuItem
             // 
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
             this.dToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // materialContextMenuStrip3
-            // 
-            this.materialContextMenuStrip3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip3.Depth = 0;
-            this.materialContextMenuStrip3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip3.Name = "materialContextMenuStrip3";
-            this.materialContextMenuStrip3.Size = new System.Drawing.Size(61, 4);
-            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // materialContextMenuStrip4
-            // 
-            this.materialContextMenuStrip4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip4.Depth = 0;
-            this.materialContextMenuStrip4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip4.Name = "materialContextMenuStrip4";
-            this.materialContextMenuStrip4.Size = new System.Drawing.Size(61, 4);
             // 
             // tableLayoutPanel4
             // 
@@ -1138,6 +1123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 705);
+            this.ContextMenuStrip = this.materialContextMenuStrip1;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gCodeGenerationMethodGroupBox);
             this.Controls.Add(this.groupBox2);
@@ -1169,6 +1155,7 @@
             this.groupBox3.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.materialContextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1234,11 +1221,8 @@
         private MaterialSkin.Controls.MaterialRadioButton rbInverseComopsitional;
         private MaterialSkin.Controls.MaterialRadioButton rbPhaseCorrelation;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
-        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
-        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private MaterialSkin.Controls.MaterialRaisedButton btnCalirate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -1247,6 +1231,7 @@
         private MaterialSkin.Controls.MaterialLabel gcodeFileMaterialLabel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gCodeGenerationMethodGroupBox;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

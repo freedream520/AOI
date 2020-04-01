@@ -222,9 +222,7 @@
     <Content Include="postprocess.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\magnify.gif" />
     <None Include="Resources\loading.png" />
-    <None Include="Resources\scan.gif" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
