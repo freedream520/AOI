@@ -55,11 +55,11 @@ namespace AOI
 
             Patch p = patches.Find(t => t.row == row && t.col == col);
 
-            Bitmap origin = new Bitmap(txtOriginFolder.Text + $"\\{p.im_number}.bmp");
+            Bitmap origin = new Bitmap(tbOriginFolder.Text + $"\\{p.im_number}.bmp");
             frm_patch.pictureBox1.Image = origin;
 
 
-            Bitmap result = new Bitmap(txtTestFolder.Text + $"\\Result\\{p.im_number}.bmp");
+            Bitmap result = new Bitmap(tbTestFolder.Text + $"\\Result\\{p.im_number}.bmp");
             frm_patch.pictureBox2.Image = result;
             //result.Dispose();
 
@@ -107,7 +107,7 @@ namespace AOI
 
                 btnTemp.Enabled = true;
 
-                string OutputfileAdrress = txtTestFolder.Text + $"\\Result\\{im_number}.bmp";
+                string OutputfileAdrress = tbTestFolder.Text + $"\\Result\\{im_number}.bmp";
                 btnTemp.BackgroundImageLayout = ImageLayout.Zoom;
                 btnTemp.BackgroundImage = new Bitmap(OutputfileAdrress);
             }
@@ -155,13 +155,12 @@ namespace AOI
             String transform_file_address;
             String result_image_address;
             String defects_data_file_path;
-            origin_image_address = txtOriginFolder.Text + $"/{im_number}.bmp";
-            test_image_address = txtTestFolder.Text + $"/{im_number}.bmp";
-            transform_file_address = txtTestFolder.Text + $"/Difference/{im_number}-tr.txt";
-            diff_image_address = txtTestFolder.Text + $"/Difference/{im_number}.bmp";
-            result_image_address = txtTestFolder.Text + $"/Result/{im_number}.bmp";
-            defects_data_file_path = txtTestFolder.Text + $"/Result/defects-data/{im_number}-dd.txt";
-
+            origin_image_address = tbOriginFolder.Text + $"/{im_number}.bmp";
+            test_image_address = tbTestFolder.Text + $"/{im_number}.bmp";
+            transform_file_address = tbTestFolder.Text + $"/Difference/{im_number}-tr.txt";
+            diff_image_address = tbTestFolder.Text + $"/Difference/{im_number}.bmp";
+            result_image_address = tbTestFolder.Text + $"/Result/{im_number}.bmp";
+            defects_data_file_path = tbTestFolder.Text + $"/Result/defects-data/{im_number}-dd.txt";
 
             if (File.Exists(origin_image_address) && File.Exists(test_image_address))
             {
@@ -206,7 +205,6 @@ namespace AOI
                     process.WaitForExit();
                     #endregion
 
-
                     #region Step2
                     startInfo = new ProcessStartInfo();
                     startInfo.FileName = @"inverse_compositional_output.exe";
@@ -229,14 +227,13 @@ namespace AOI
                     process.WaitForExit();
                     #endregion
 
-
                     #region Step3
                     File.Delete(result_image_address);
                     startInfo = new ProcessStartInfo();
                     startInfo.FileName = @"postprocess.exe";
                     startInfo.Arguments = $"{diff_image_address} {test_image_address} {result_image_address} " +
-                        $"{txtDiffThr.Text} {txtEdgeThr.Text} {txtSizeThr.Text} " +
-                        $"{txtLeft.Text} {txtRight.Text} {txtTop.Text} {txtBottom.Text}";
+                        $"{tbDiffThr.Text} {tbEdgeThr.Text} {tbSizeThr.Text} " +
+                        $"{tbLeft.Text} {tbRight.Text} {tbTop.Text} {tbBottom.Text}";
 
                     startInfo.RedirectStandardOutput = true;
                     startInfo.RedirectStandardError = true;
@@ -250,8 +247,8 @@ namespace AOI
                     process.WaitForExit();
                     defect_finding_result = process.ExitCode; // 1: Defectless  0: Nondefectless
 
-                    Directory.CreateDirectory(txtTestFolder.Text + "/Result/user-actions/");
-                    StreamWriter user_decision_writer = new StreamWriter(txtTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt");
+                    Directory.CreateDirectory(tbTestFolder.Text + "/Result/user-actions/");
+                    StreamWriter user_decision_writer = new StreamWriter(tbTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt");
                     if (defect_finding_result == 1)
                         user_decision_writer.WriteLine("undecidable");
                     else
@@ -272,12 +269,12 @@ namespace AOI
         {
             if (validate_all_inputs() == false)
                 return;
-            Directory.CreateDirectory(txtTestFolder.Text + "\\Difference");
-            Directory.CreateDirectory(txtTestFolder.Text + "\\Result");
+            Directory.CreateDirectory(tbTestFolder.Text + "\\Difference");
+            Directory.CreateDirectory(tbTestFolder.Text + "\\Result");
 
             ShowGrid();
 
-            int parallel = Convert.ToInt32(txtParallel.Text);
+            int parallel = Convert.ToInt32(tbParallel.Text);
             cts = new CancellationTokenSource();
             po.CancellationToken = cts.Token;
             po.MaxDegreeOfParallelism = Environment.ProcessorCount;
@@ -316,7 +313,7 @@ namespace AOI
             // allocated for grabbing. The default value of this parameter is 10.
             camera.Parameters[PLCameraInstance.MaxNumBuffer].SetValue(2);
             camera.Parameters[PLUsbCamera.PixelFormat].SetValue(PLUsbCamera.PixelFormat.RGB8);
-            camera.Parameters[PLUsbCamera.ExposureTime].SetValue(Convert.ToInt32(txtExposureTime.Text));
+            camera.Parameters[PLUsbCamera.ExposureTime].SetValue(Convert.ToInt32(tbExposureTime.Text));
             camera.Parameters[PLUsbCamera.ExposureAuto].SetValue(PLUsbCamera.ExposureAuto.Off);
             camera.Parameters[PLUsbCamera.GainAuto].SetValue(PLUsbCamera.GainAuto.Off);
             camera.Parameters[PLUsbCamera.BalanceWhiteAuto].SetValue(PLUsbCamera.BalanceWhiteAuto.Off);
@@ -390,19 +387,19 @@ namespace AOI
                 TextShade.WHITE);
 
             StreamReader sr = new StreamReader("default_parameters.txt");
-            txtDiffThr.Text = sr.ReadLine();
-            txtEdgeThr.Text = sr.ReadLine();
-            txtSizeThr.Text = sr.ReadLine();
-            txtExposureTime.Text = sr.ReadLine();
-            txtLeft.Text = sr.ReadLine();
-            txtRight.Text = sr.ReadLine();
-            txtTop.Text = sr.ReadLine();
-            txtBottom.Text = sr.ReadLine();
-            txtCOM.Text = sr.ReadLine();
-            txtParallel.Text = sr.ReadLine();
-            txtGcodeFile.Text = sr.ReadLine();
-            txtOriginFolder.Text = sr.ReadLine();
-            txtTestFolder.Text = sr.ReadLine();
+            tbDiffThr.Text = sr.ReadLine();
+            tbEdgeThr.Text = sr.ReadLine();
+            tbSizeThr.Text = sr.ReadLine();
+            tbExposureTime.Text = sr.ReadLine();
+            tbLeft.Text = sr.ReadLine();
+            tbRight.Text = sr.ReadLine();
+            tbTop.Text = sr.ReadLine();
+            tbBottom.Text = sr.ReadLine();
+            tbCOM.Text = sr.ReadLine();
+            tbParallel.Text = sr.ReadLine();
+            tbGcodeFile.Text = sr.ReadLine();
+            tbOriginFolder.Text = sr.ReadLine();
+            tbTestFolder.Text = sr.ReadLine();
             sr.Close();
         }
         private void BtnOriginScan_Click(object sender, EventArgs e)
@@ -438,7 +435,7 @@ namespace AOI
                 int row = 0;
                 int im_number = 0;
 
-                read_gcode_file(txtGcodeFile.Text);
+                read_gcode_file(tbGcodeFile.Text);
 
                 tableLayoutPanel1.Controls.Clear();
 
@@ -514,18 +511,18 @@ namespace AOI
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                txtGcodeFile.Text = openFileDialog1.FileName;
+                tbGcodeFile.Text = openFileDialog1.FileName;
                 ShowGrid();
             }
         }
 
         private void BtnCalirate_Click(object sender, EventArgs e)
         {
-            SerialPort sp = new SerialPort(txtCOM.Text, 250000);
+            SerialPort sp = new SerialPort(tbCOM.Text, 250000);
             try
             {
                 sp.Open();
-                StreamReader gcodeFile = new StreamReader(txtGcodeFile.Text);
+                StreamReader gcodeFile = new StreamReader(tbGcodeFile.Text);
 
                 string line;
                 for (int i = 0; i < 8; i++)
@@ -546,13 +543,13 @@ namespace AOI
         private void BtnBrowseOrigin_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-                txtOriginFolder.Text = folderBrowserDialog1.SelectedPath;
+                tbOriginFolder.Text = folderBrowserDialog1.SelectedPath;
         }
 
         private void BtnBrowseTest_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-                txtTestFolder.Text = folderBrowserDialog1.SelectedPath;
+                tbTestFolder.Text = folderBrowserDialog1.SelectedPath;
         }
 
         private void BtnCompare_Click(object sender, EventArgs e)
@@ -569,14 +566,14 @@ namespace AOI
 
         private void Scan(string mode)
         {
-            SerialPort sp = new SerialPort(txtCOM.Text, 250000);
+            SerialPort sp = new SerialPort(tbCOM.Text, 250000);
             try
             {
                 InitCamera();
                 sp.Open();
 
                 string line;
-                StreamReader gcodeFile = new StreamReader(txtGcodeFile.Text);
+                StreamReader gcodeFile = new StreamReader(tbGcodeFile.Text);
                 for (int i = 0; i < 4; i++)
                 {
                     line = gcodeFile.ReadLine();
@@ -609,15 +606,15 @@ namespace AOI
 
                     if (mode == "origin")
                     {
-                        if (!Directory.Exists(txtOriginFolder.Text))
-                            Directory.CreateDirectory(txtOriginFolder.Text);
-                        GrabImage(txtOriginFolder.Text + "\\" + im_number + ".bmp");
+                        if (!Directory.Exists(tbOriginFolder.Text))
+                            Directory.CreateDirectory(tbOriginFolder.Text);
+                        GrabImage(tbOriginFolder.Text + "\\" + im_number + ".bmp");
                     }
                     else if (mode == "test")
                     {
-                        if (!Directory.Exists(txtTestFolder.Text))
-                            Directory.CreateDirectory(txtTestFolder.Text);
-                        GrabImage(txtTestFolder.Text + "\\" + im_number + ".bmp");
+                        if (!Directory.Exists(tbTestFolder.Text))
+                            Directory.CreateDirectory(tbTestFolder.Text);
+                        GrabImage(tbTestFolder.Text + "\\" + im_number + ".bmp");
                     }
                     //sp.ReadLine();
                     im_number++;
@@ -672,22 +669,22 @@ namespace AOI
         {
             StreamWriter sw = new StreamWriter("default_parameters.txt");
 
-            sw.WriteLine(txtDiffThr.Text);
-            sw.WriteLine(txtEdgeThr.Text);
-            sw.WriteLine(txtSizeThr.Text);
-            sw.WriteLine(txtExposureTime.Text);
+            sw.WriteLine(tbDiffThr.Text);
+            sw.WriteLine(tbEdgeThr.Text);
+            sw.WriteLine(tbSizeThr.Text);
+            sw.WriteLine(tbExposureTime.Text);
 
-            sw.WriteLine(txtLeft.Text);
-            sw.WriteLine(txtRight.Text);
-            sw.WriteLine(txtTop.Text);
-            sw.WriteLine(txtBottom.Text);
+            sw.WriteLine(tbLeft.Text);
+            sw.WriteLine(tbRight.Text);
+            sw.WriteLine(tbTop.Text);
+            sw.WriteLine(tbBottom.Text);
 
-            sw.WriteLine(txtCOM.Text);
-            sw.WriteLine(txtParallel.Text);
+            sw.WriteLine(tbCOM.Text);
+            sw.WriteLine(tbParallel.Text);
 
-            sw.WriteLine(txtGcodeFile.Text);
-            sw.WriteLine(txtOriginFolder.Text);
-            sw.WriteLine(txtTestFolder.Text);
+            sw.WriteLine(tbGcodeFile.Text);
+            sw.WriteLine(tbOriginFolder.Text);
+            sw.WriteLine(tbTestFolder.Text);
 
             sw.Flush();
             sw.Close();
@@ -788,15 +785,15 @@ namespace AOI
                     main_report_writer.Write("Image #" + i.ToString() + ":");
                     StreamReader sr;
                     string user_decision = "keep";
-                    if (File.Exists(txtTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt"))
+                    if (File.Exists(tbTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt"))
                     {
-                        sr = new StreamReader(txtTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt");
+                        sr = new StreamReader(tbTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt");
                         user_decision = sr.ReadLine();
                         sr.Close();
                     }
                     if (user_decision == "keep")
                     {
-                        StreamReader report_reader = new StreamReader(txtTestFolder.Text + "/Result/defects-data/" + i.ToString() + "-dd.txt");
+                        StreamReader report_reader = new StreamReader(tbTestFolder.Text + "/Result/defects-data/" + i.ToString() + "-dd.txt");
                         report_reader.ReadLine(); // Skip first line (Hint)
                         int defects_count = Convert.ToInt32(report_reader.ReadLine());
                         main_report_writer.Write(" " + defects_count.ToString() + " defects\n");
@@ -828,7 +825,7 @@ namespace AOI
         }
         public bool read_gcode_file(string gcode_file_path)
         {
-            StreamReader gcode_file_reader = new StreamReader(txtGcodeFile.Text);
+            StreamReader gcode_file_reader = new StreamReader(tbGcodeFile.Text);
             string[] values = gcode_file_reader.ReadLine().Split(' ');
             gcode_file_reader.Close();
             if (values.Length != 2)
@@ -867,25 +864,25 @@ namespace AOI
             List<string> messages; messages = new List<string>(40);
             List<int> messages_codes; messages_codes = new List<int>(40);
 
-            if (is_all_whitespaces(txtOriginFolder.Text))
+            if (is_all_whitespaces(tbOriginFolder.Text))
                 messages.Add("Please enter origin images folder address.");
-            else if (!Directory.Exists(txtOriginFolder.Text))
+            else if (!Directory.Exists(tbOriginFolder.Text))
                 messages.Add("Origin images folder does not exist.");
-            else if (Directory.GetFiles(txtOriginFolder.Text).Length == 0)
+            else if (Directory.GetFiles(tbOriginFolder.Text).Length == 0)
                 messages.Add("Origin images folder is empty.");
 
-            if (is_all_whitespaces(txtTestFolder.Text))
+            if (is_all_whitespaces(tbTestFolder.Text))
                 messages.Add("Please enter test images folder address.");
-            else if (!Directory.Exists(txtTestFolder.Text))
+            else if (!Directory.Exists(tbTestFolder.Text))
                 messages.Add("Test images folder does not exist.");
-            else if (Directory.GetFiles(txtTestFolder.Text).Length == 0)
+            else if (Directory.GetFiles(tbTestFolder.Text).Length == 0)
                 messages.Add("Test images folder is empty.");
 
-            if (is_all_whitespaces(txtGcodeFile.Text))
+            if (is_all_whitespaces(tbGcodeFile.Text))
                 messages.Add("Please enter gcode file address.");
-            else if (!File.Exists(txtGcodeFile.Text))
+            else if (!File.Exists(tbGcodeFile.Text))
                 messages.Add("gcode file does not exist.");
-            else if (read_gcode_file(txtGcodeFile.Text) == false)
+            else if (read_gcode_file(tbGcodeFile.Text) == false)
                 messages.Add("Cannot obtain number of images from gcode file. The format of gcode is incorrect.");
 
             string main_message = "";
@@ -902,11 +899,11 @@ namespace AOI
             List<int> messages_codes; messages_codes = new List<int>(40);
             if (ims_count > -1)
                 return true;
-            if (is_all_whitespaces(txtGcodeFile.Text))
+            if (is_all_whitespaces(tbGcodeFile.Text))
                 messages.Add("Please enter gcode file address to read number of images.");
-            else if (!File.Exists(txtGcodeFile.Text))
+            else if (!File.Exists(tbGcodeFile.Text))
                 messages.Add("gcode file does not exist to read number of images.");
-            else if (read_gcode_file(txtGcodeFile.Text) == false)
+            else if (read_gcode_file(tbGcodeFile.Text) == false)
                 messages.Add("Cannot obtain number of images from gcode file. The format of gcode is incorrect.");
 
             string main_message = "";
@@ -927,7 +924,7 @@ namespace AOI
         public int get_ims_count()
         {
             if (ims_count == -1 && validate_report_inputs() == true)
-                read_gcode_file(txtGcodeFile.Text);
+                read_gcode_file(tbGcodeFile.Text);
             return ims_count;
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

@@ -39,14 +39,14 @@
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtBottom = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtTop = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtRight = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtLeft = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtExposureTime = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtSizeThr = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtEdgeThr = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtDiffThr = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbBottom = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbTop = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbRight = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbLeft = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbExposureTime = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbSizeThr = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbEdgeThr = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbDiffThr = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -54,16 +54,16 @@
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtCOM = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtParallel = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbCOM = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbParallel = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOriginScan = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnOriginScanStop = new MaterialSkin.Controls.MaterialFlatButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBrowseOrigin = new MaterialSkin.Controls.MaterialFlatButton();
-            this.txtOriginFolder = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbOriginFolder = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtTestFolder = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbTestFolder = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnBrowseTest = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -88,7 +88,7 @@
             this.btnCalirate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBrowseGcode = new MaterialSkin.Controls.MaterialFlatButton();
-            this.txtGcodeFile = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tbGcodeFile = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.gcodeFileMaterialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gCodeGenerationMethodGroupBox = new System.Windows.Forms.GroupBox();
@@ -180,14 +180,14 @@
             this.tableLayoutPanel10.Controls.Add(this.materialLabel11, 0, 7);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel13, 0, 9);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel12, 0, 8);
-            this.tableLayoutPanel10.Controls.Add(this.txtBottom, 1, 7);
-            this.tableLayoutPanel10.Controls.Add(this.txtTop, 1, 6);
-            this.tableLayoutPanel10.Controls.Add(this.txtRight, 1, 5);
-            this.tableLayoutPanel10.Controls.Add(this.txtLeft, 1, 4);
-            this.tableLayoutPanel10.Controls.Add(this.txtExposureTime, 1, 3);
-            this.tableLayoutPanel10.Controls.Add(this.txtSizeThr, 1, 2);
-            this.tableLayoutPanel10.Controls.Add(this.txtEdgeThr, 1, 1);
-            this.tableLayoutPanel10.Controls.Add(this.txtDiffThr, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tbBottom, 1, 7);
+            this.tableLayoutPanel10.Controls.Add(this.tbTop, 1, 6);
+            this.tableLayoutPanel10.Controls.Add(this.tbRight, 1, 5);
+            this.tableLayoutPanel10.Controls.Add(this.tbLeft, 1, 4);
+            this.tableLayoutPanel10.Controls.Add(this.tbExposureTime, 1, 3);
+            this.tableLayoutPanel10.Controls.Add(this.tbSizeThr, 1, 2);
+            this.tableLayoutPanel10.Controls.Add(this.tbEdgeThr, 1, 1);
+            this.tableLayoutPanel10.Controls.Add(this.tbDiffThr, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel4, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel5, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel6, 0, 2);
@@ -195,8 +195,8 @@
             this.tableLayoutPanel10.Controls.Add(this.materialLabel8, 0, 4);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel9, 0, 5);
             this.tableLayoutPanel10.Controls.Add(this.materialLabel10, 0, 6);
-            this.tableLayoutPanel10.Controls.Add(this.txtCOM, 1, 8);
-            this.tableLayoutPanel10.Controls.Add(this.txtParallel, 1, 9);
+            this.tableLayoutPanel10.Controls.Add(this.tbCOM, 1, 8);
+            this.tableLayoutPanel10.Controls.Add(this.tbParallel, 1, 9);
             this.tableLayoutPanel10.Location = new System.Drawing.Point(18, 25);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 10;
@@ -261,165 +261,165 @@
             this.materialLabel12.TabIndex = 54;
             this.materialLabel12.Text = "Serial Port";
             // 
-            // txtBottom
+            // tbBottom
             // 
-            this.txtBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBottom.Depth = 0;
-            this.txtBottom.Hint = "";
-            this.txtBottom.Location = new System.Drawing.Point(166, 213);
-            this.txtBottom.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtBottom.Name = "txtBottom";
-            this.txtBottom.PasswordChar = '\0';
-            this.txtBottom.SelectedText = "";
-            this.txtBottom.SelectionLength = 0;
-            this.txtBottom.SelectionStart = 0;
-            this.txtBottom.Size = new System.Drawing.Size(76, 23);
-            this.txtBottom.TabIndex = 47;
-            this.txtBottom.TabStop = false;
-            this.txtBottom.Text = "50";
-            this.txtBottom.UseSystemPasswordChar = false;
+            this.tbBottom.Depth = 0;
+            this.tbBottom.Hint = "";
+            this.tbBottom.Location = new System.Drawing.Point(166, 213);
+            this.tbBottom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbBottom.Name = "tbBottom";
+            this.tbBottom.PasswordChar = '\0';
+            this.tbBottom.SelectedText = "";
+            this.tbBottom.SelectionLength = 0;
+            this.tbBottom.SelectionStart = 0;
+            this.tbBottom.Size = new System.Drawing.Size(76, 23);
+            this.tbBottom.TabIndex = 47;
+            this.tbBottom.TabStop = false;
+            this.tbBottom.Text = "50";
+            this.tbBottom.UseSystemPasswordChar = false;
             // 
-            // txtTop
+            // tbTop
             // 
-            this.txtTop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbTop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTop.Depth = 0;
-            this.txtTop.Hint = "";
-            this.txtTop.Location = new System.Drawing.Point(166, 183);
-            this.txtTop.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtTop.Name = "txtTop";
-            this.txtTop.PasswordChar = '\0';
-            this.txtTop.SelectedText = "";
-            this.txtTop.SelectionLength = 0;
-            this.txtTop.SelectionStart = 0;
-            this.txtTop.Size = new System.Drawing.Size(76, 23);
-            this.txtTop.TabIndex = 47;
-            this.txtTop.TabStop = false;
-            this.txtTop.Text = "50";
-            this.txtTop.UseSystemPasswordChar = false;
+            this.tbTop.Depth = 0;
+            this.tbTop.Hint = "";
+            this.tbTop.Location = new System.Drawing.Point(166, 183);
+            this.tbTop.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbTop.Name = "tbTop";
+            this.tbTop.PasswordChar = '\0';
+            this.tbTop.SelectedText = "";
+            this.tbTop.SelectionLength = 0;
+            this.tbTop.SelectionStart = 0;
+            this.tbTop.Size = new System.Drawing.Size(76, 23);
+            this.tbTop.TabIndex = 47;
+            this.tbTop.TabStop = false;
+            this.tbTop.Text = "50";
+            this.tbTop.UseSystemPasswordChar = false;
             // 
-            // txtRight
+            // tbRight
             // 
-            this.txtRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRight.Depth = 0;
-            this.txtRight.Hint = "";
-            this.txtRight.Location = new System.Drawing.Point(166, 153);
-            this.txtRight.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtRight.Name = "txtRight";
-            this.txtRight.PasswordChar = '\0';
-            this.txtRight.SelectedText = "";
-            this.txtRight.SelectionLength = 0;
-            this.txtRight.SelectionStart = 0;
-            this.txtRight.Size = new System.Drawing.Size(76, 23);
-            this.txtRight.TabIndex = 47;
-            this.txtRight.TabStop = false;
-            this.txtRight.Text = "50";
-            this.txtRight.UseSystemPasswordChar = false;
+            this.tbRight.Depth = 0;
+            this.tbRight.Hint = "";
+            this.tbRight.Location = new System.Drawing.Point(166, 153);
+            this.tbRight.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbRight.Name = "tbRight";
+            this.tbRight.PasswordChar = '\0';
+            this.tbRight.SelectedText = "";
+            this.tbRight.SelectionLength = 0;
+            this.tbRight.SelectionStart = 0;
+            this.tbRight.Size = new System.Drawing.Size(76, 23);
+            this.tbRight.TabIndex = 47;
+            this.tbRight.TabStop = false;
+            this.tbRight.Text = "50";
+            this.tbRight.UseSystemPasswordChar = false;
             // 
-            // txtLeft
+            // tbLeft
             // 
-            this.txtLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLeft.Depth = 0;
-            this.txtLeft.Hint = "";
-            this.txtLeft.Location = new System.Drawing.Point(166, 123);
-            this.txtLeft.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtLeft.Name = "txtLeft";
-            this.txtLeft.PasswordChar = '\0';
-            this.txtLeft.SelectedText = "";
-            this.txtLeft.SelectionLength = 0;
-            this.txtLeft.SelectionStart = 0;
-            this.txtLeft.Size = new System.Drawing.Size(76, 23);
-            this.txtLeft.TabIndex = 47;
-            this.txtLeft.TabStop = false;
-            this.txtLeft.Text = "50";
-            this.txtLeft.UseSystemPasswordChar = false;
+            this.tbLeft.Depth = 0;
+            this.tbLeft.Hint = "";
+            this.tbLeft.Location = new System.Drawing.Point(166, 123);
+            this.tbLeft.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbLeft.Name = "tbLeft";
+            this.tbLeft.PasswordChar = '\0';
+            this.tbLeft.SelectedText = "";
+            this.tbLeft.SelectionLength = 0;
+            this.tbLeft.SelectionStart = 0;
+            this.tbLeft.Size = new System.Drawing.Size(76, 23);
+            this.tbLeft.TabIndex = 47;
+            this.tbLeft.TabStop = false;
+            this.tbLeft.Text = "50";
+            this.tbLeft.UseSystemPasswordChar = false;
             // 
-            // txtExposureTime
+            // tbExposureTime
             // 
-            this.txtExposureTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbExposureTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExposureTime.Depth = 0;
-            this.txtExposureTime.Hint = "";
-            this.txtExposureTime.Location = new System.Drawing.Point(166, 93);
-            this.txtExposureTime.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtExposureTime.Name = "txtExposureTime";
-            this.txtExposureTime.PasswordChar = '\0';
-            this.txtExposureTime.SelectedText = "";
-            this.txtExposureTime.SelectionLength = 0;
-            this.txtExposureTime.SelectionStart = 0;
-            this.txtExposureTime.Size = new System.Drawing.Size(76, 23);
-            this.txtExposureTime.TabIndex = 47;
-            this.txtExposureTime.TabStop = false;
-            this.txtExposureTime.Text = "1200";
-            this.txtExposureTime.UseSystemPasswordChar = false;
+            this.tbExposureTime.Depth = 0;
+            this.tbExposureTime.Hint = "";
+            this.tbExposureTime.Location = new System.Drawing.Point(166, 93);
+            this.tbExposureTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbExposureTime.Name = "tbExposureTime";
+            this.tbExposureTime.PasswordChar = '\0';
+            this.tbExposureTime.SelectedText = "";
+            this.tbExposureTime.SelectionLength = 0;
+            this.tbExposureTime.SelectionStart = 0;
+            this.tbExposureTime.Size = new System.Drawing.Size(76, 23);
+            this.tbExposureTime.TabIndex = 47;
+            this.tbExposureTime.TabStop = false;
+            this.tbExposureTime.Text = "1200";
+            this.tbExposureTime.UseSystemPasswordChar = false;
             // 
-            // txtSizeThr
+            // tbSizeThr
             // 
-            this.txtSizeThr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbSizeThr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSizeThr.Depth = 0;
-            this.txtSizeThr.Hint = "";
-            this.txtSizeThr.Location = new System.Drawing.Point(166, 63);
-            this.txtSizeThr.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtSizeThr.Name = "txtSizeThr";
-            this.txtSizeThr.PasswordChar = '\0';
-            this.txtSizeThr.SelectedText = "";
-            this.txtSizeThr.SelectionLength = 0;
-            this.txtSizeThr.SelectionStart = 0;
-            this.txtSizeThr.Size = new System.Drawing.Size(76, 23);
-            this.txtSizeThr.TabIndex = 47;
-            this.txtSizeThr.TabStop = false;
-            this.txtSizeThr.Text = "600";
-            this.txtSizeThr.UseSystemPasswordChar = false;
+            this.tbSizeThr.Depth = 0;
+            this.tbSizeThr.Hint = "";
+            this.tbSizeThr.Location = new System.Drawing.Point(166, 63);
+            this.tbSizeThr.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbSizeThr.Name = "tbSizeThr";
+            this.tbSizeThr.PasswordChar = '\0';
+            this.tbSizeThr.SelectedText = "";
+            this.tbSizeThr.SelectionLength = 0;
+            this.tbSizeThr.SelectionStart = 0;
+            this.tbSizeThr.Size = new System.Drawing.Size(76, 23);
+            this.tbSizeThr.TabIndex = 47;
+            this.tbSizeThr.TabStop = false;
+            this.tbSizeThr.Text = "600";
+            this.tbSizeThr.UseSystemPasswordChar = false;
             // 
-            // txtEdgeThr
+            // tbEdgeThr
             // 
-            this.txtEdgeThr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbEdgeThr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEdgeThr.Depth = 0;
-            this.txtEdgeThr.Hint = "";
-            this.txtEdgeThr.Location = new System.Drawing.Point(166, 33);
-            this.txtEdgeThr.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtEdgeThr.Name = "txtEdgeThr";
-            this.txtEdgeThr.PasswordChar = '\0';
-            this.txtEdgeThr.SelectedText = "";
-            this.txtEdgeThr.SelectionLength = 0;
-            this.txtEdgeThr.SelectionStart = 0;
-            this.txtEdgeThr.Size = new System.Drawing.Size(76, 23);
-            this.txtEdgeThr.TabIndex = 47;
-            this.txtEdgeThr.TabStop = false;
-            this.txtEdgeThr.Text = "3";
-            this.txtEdgeThr.UseSystemPasswordChar = false;
+            this.tbEdgeThr.Depth = 0;
+            this.tbEdgeThr.Hint = "";
+            this.tbEdgeThr.Location = new System.Drawing.Point(166, 33);
+            this.tbEdgeThr.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbEdgeThr.Name = "tbEdgeThr";
+            this.tbEdgeThr.PasswordChar = '\0';
+            this.tbEdgeThr.SelectedText = "";
+            this.tbEdgeThr.SelectionLength = 0;
+            this.tbEdgeThr.SelectionStart = 0;
+            this.tbEdgeThr.Size = new System.Drawing.Size(76, 23);
+            this.tbEdgeThr.TabIndex = 47;
+            this.tbEdgeThr.TabStop = false;
+            this.tbEdgeThr.Text = "3";
+            this.tbEdgeThr.UseSystemPasswordChar = false;
             // 
-            // txtDiffThr
+            // tbDiffThr
             // 
-            this.txtDiffThr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbDiffThr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDiffThr.Depth = 0;
-            this.txtDiffThr.Hint = "";
-            this.txtDiffThr.Location = new System.Drawing.Point(166, 3);
-            this.txtDiffThr.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtDiffThr.Name = "txtDiffThr";
-            this.txtDiffThr.PasswordChar = '\0';
-            this.txtDiffThr.SelectedText = "";
-            this.txtDiffThr.SelectionLength = 0;
-            this.txtDiffThr.SelectionStart = 0;
-            this.txtDiffThr.Size = new System.Drawing.Size(76, 23);
-            this.txtDiffThr.TabIndex = 46;
-            this.txtDiffThr.TabStop = false;
-            this.txtDiffThr.Text = "30";
-            this.txtDiffThr.UseSystemPasswordChar = false;
+            this.tbDiffThr.Depth = 0;
+            this.tbDiffThr.Hint = "";
+            this.tbDiffThr.Location = new System.Drawing.Point(166, 3);
+            this.tbDiffThr.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbDiffThr.Name = "tbDiffThr";
+            this.tbDiffThr.PasswordChar = '\0';
+            this.tbDiffThr.SelectedText = "";
+            this.tbDiffThr.SelectionLength = 0;
+            this.tbDiffThr.SelectionStart = 0;
+            this.tbDiffThr.Size = new System.Drawing.Size(76, 23);
+            this.tbDiffThr.TabIndex = 46;
+            this.tbDiffThr.TabStop = false;
+            this.tbDiffThr.Text = "30";
+            this.tbDiffThr.UseSystemPasswordChar = false;
             // 
             // materialLabel4
             // 
@@ -533,42 +533,42 @@
             this.materialLabel10.TabIndex = 52;
             this.materialLabel10.Text = "Top";
             // 
-            // txtCOM
+            // tbCOM
             // 
-            this.txtCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCOM.Depth = 0;
-            this.txtCOM.Hint = "";
-            this.txtCOM.Location = new System.Drawing.Point(166, 243);
-            this.txtCOM.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtCOM.Name = "txtCOM";
-            this.txtCOM.PasswordChar = '\0';
-            this.txtCOM.SelectedText = "";
-            this.txtCOM.SelectionLength = 0;
-            this.txtCOM.SelectionStart = 0;
-            this.txtCOM.Size = new System.Drawing.Size(76, 23);
-            this.txtCOM.TabIndex = 50;
-            this.txtCOM.TabStop = false;
-            this.txtCOM.Text = "COM4";
-            this.txtCOM.UseSystemPasswordChar = false;
+            this.tbCOM.Depth = 0;
+            this.tbCOM.Hint = "";
+            this.tbCOM.Location = new System.Drawing.Point(166, 243);
+            this.tbCOM.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbCOM.Name = "tbCOM";
+            this.tbCOM.PasswordChar = '\0';
+            this.tbCOM.SelectedText = "";
+            this.tbCOM.SelectionLength = 0;
+            this.tbCOM.SelectionStart = 0;
+            this.tbCOM.Size = new System.Drawing.Size(76, 23);
+            this.tbCOM.TabIndex = 50;
+            this.tbCOM.TabStop = false;
+            this.tbCOM.Text = "COM4";
+            this.tbCOM.UseSystemPasswordChar = false;
             // 
-            // txtParallel
+            // tbParallel
             // 
-            this.txtParallel.Depth = 0;
-            this.txtParallel.Hint = "";
-            this.txtParallel.Location = new System.Drawing.Point(166, 273);
-            this.txtParallel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtParallel.Name = "txtParallel";
-            this.txtParallel.PasswordChar = '\0';
-            this.txtParallel.SelectedText = "";
-            this.txtParallel.SelectionLength = 0;
-            this.txtParallel.SelectionStart = 0;
-            this.txtParallel.Size = new System.Drawing.Size(58, 23);
-            this.txtParallel.TabIndex = 54;
-            this.txtParallel.TabStop = false;
-            this.txtParallel.Text = "4";
-            this.txtParallel.UseSystemPasswordChar = false;
+            this.tbParallel.Depth = 0;
+            this.tbParallel.Hint = "";
+            this.tbParallel.Location = new System.Drawing.Point(166, 273);
+            this.tbParallel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbParallel.Name = "tbParallel";
+            this.tbParallel.PasswordChar = '\0';
+            this.tbParallel.SelectedText = "";
+            this.tbParallel.SelectionLength = 0;
+            this.tbParallel.SelectionStart = 0;
+            this.tbParallel.Size = new System.Drawing.Size(58, 23);
+            this.tbParallel.TabIndex = 54;
+            this.tbParallel.TabStop = false;
+            this.tbParallel.Text = "4";
+            this.tbParallel.UseSystemPasswordChar = false;
             // 
             // tableLayoutPanel2
             // 
@@ -629,7 +629,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.Controls.Add(this.btnBrowseOrigin, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtOriginFolder, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.tbOriginFolder, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(18, 47);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
@@ -657,31 +657,31 @@
             this.btnBrowseOrigin.UseVisualStyleBackColor = true;
             this.btnBrowseOrigin.Click += new System.EventHandler(this.BtnBrowseOrigin_Click);
             // 
-            // txtOriginFolder
+            // tbOriginFolder
             // 
-            this.txtOriginFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbOriginFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOriginFolder.Depth = 0;
-            this.txtOriginFolder.Hint = "";
-            this.txtOriginFolder.Location = new System.Drawing.Point(3, 3);
-            this.txtOriginFolder.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtOriginFolder.Name = "txtOriginFolder";
-            this.txtOriginFolder.PasswordChar = '\0';
-            this.txtOriginFolder.SelectedText = "";
-            this.txtOriginFolder.SelectionLength = 0;
-            this.txtOriginFolder.SelectionStart = 0;
-            this.txtOriginFolder.Size = new System.Drawing.Size(157, 23);
-            this.txtOriginFolder.TabIndex = 46;
-            this.txtOriginFolder.TabStop = false;
-            this.txtOriginFolder.UseSystemPasswordChar = false;
+            this.tbOriginFolder.Depth = 0;
+            this.tbOriginFolder.Hint = "";
+            this.tbOriginFolder.Location = new System.Drawing.Point(3, 3);
+            this.tbOriginFolder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbOriginFolder.Name = "tbOriginFolder";
+            this.tbOriginFolder.PasswordChar = '\0';
+            this.tbOriginFolder.SelectedText = "";
+            this.tbOriginFolder.SelectionLength = 0;
+            this.tbOriginFolder.SelectionStart = 0;
+            this.tbOriginFolder.Size = new System.Drawing.Size(157, 23);
+            this.tbOriginFolder.TabIndex = 46;
+            this.tbOriginFolder.TabStop = false;
+            this.tbOriginFolder.UseSystemPasswordChar = false;
             // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.Controls.Add(this.txtTestFolder, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tbTestFolder, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnBrowseTest, 1, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(18, 156);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -691,24 +691,24 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(245, 32);
             this.tableLayoutPanel6.TabIndex = 52;
             // 
-            // txtTestFolder
+            // tbTestFolder
             // 
-            this.txtTestFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbTestFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTestFolder.Depth = 0;
-            this.txtTestFolder.Hint = "";
-            this.txtTestFolder.Location = new System.Drawing.Point(3, 3);
-            this.txtTestFolder.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtTestFolder.Name = "txtTestFolder";
-            this.txtTestFolder.PasswordChar = '\0';
-            this.txtTestFolder.SelectedText = "";
-            this.txtTestFolder.SelectionLength = 0;
-            this.txtTestFolder.SelectionStart = 0;
-            this.txtTestFolder.Size = new System.Drawing.Size(157, 23);
-            this.txtTestFolder.TabIndex = 46;
-            this.txtTestFolder.TabStop = false;
-            this.txtTestFolder.UseSystemPasswordChar = false;
+            this.tbTestFolder.Depth = 0;
+            this.tbTestFolder.Hint = "";
+            this.tbTestFolder.Location = new System.Drawing.Point(3, 3);
+            this.tbTestFolder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbTestFolder.Name = "tbTestFolder";
+            this.tbTestFolder.PasswordChar = '\0';
+            this.tbTestFolder.SelectedText = "";
+            this.tbTestFolder.SelectionLength = 0;
+            this.tbTestFolder.SelectionStart = 0;
+            this.tbTestFolder.Size = new System.Drawing.Size(157, 23);
+            this.tbTestFolder.TabIndex = 46;
+            this.tbTestFolder.TabStop = false;
+            this.tbTestFolder.UseSystemPasswordChar = false;
             // 
             // btnBrowseTest
             // 
@@ -1029,7 +1029,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.Controls.Add(this.btnBrowseGcode, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtGcodeFile, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tbGcodeFile, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(18, 56);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
@@ -1057,24 +1057,24 @@
             this.btnBrowseGcode.UseVisualStyleBackColor = true;
             this.btnBrowseGcode.Click += new System.EventHandler(this.BtnBrowseGcode_Click);
             // 
-            // txtGcodeFile
+            // tbGcodeFile
             // 
-            this.txtGcodeFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbGcodeFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGcodeFile.Depth = 0;
-            this.txtGcodeFile.Hint = "";
-            this.txtGcodeFile.Location = new System.Drawing.Point(3, 3);
-            this.txtGcodeFile.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtGcodeFile.Name = "txtGcodeFile";
-            this.txtGcodeFile.PasswordChar = '\0';
-            this.txtGcodeFile.SelectedText = "";
-            this.txtGcodeFile.SelectionLength = 0;
-            this.txtGcodeFile.SelectionStart = 0;
-            this.txtGcodeFile.Size = new System.Drawing.Size(157, 23);
-            this.txtGcodeFile.TabIndex = 46;
-            this.txtGcodeFile.TabStop = false;
-            this.txtGcodeFile.UseSystemPasswordChar = false;
+            this.tbGcodeFile.Depth = 0;
+            this.tbGcodeFile.Hint = "";
+            this.tbGcodeFile.Location = new System.Drawing.Point(3, 3);
+            this.tbGcodeFile.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbGcodeFile.Name = "tbGcodeFile";
+            this.tbGcodeFile.PasswordChar = '\0';
+            this.tbGcodeFile.SelectedText = "";
+            this.tbGcodeFile.SelectionLength = 0;
+            this.tbGcodeFile.SelectionStart = 0;
+            this.tbGcodeFile.Size = new System.Drawing.Size(157, 23);
+            this.tbGcodeFile.TabIndex = 46;
+            this.tbGcodeFile.TabStop = false;
+            this.tbGcodeFile.UseSystemPasswordChar = false;
             // 
             // gcodeFileMaterialLabel1
             // 
@@ -1174,14 +1174,14 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtBottom;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtTop;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtRight;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtLeft;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtExposureTime;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtSizeThr;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtEdgeThr;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtDiffThr;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbBottom;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbTop;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbRight;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbLeft;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbExposureTime;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbSizeThr;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbEdgeThr;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbDiffThr;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
@@ -1191,19 +1191,19 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private MaterialSkin.Controls.MaterialRaisedButton btnSetDefault;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtCOM;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbCOM;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtParallel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbParallel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private MaterialSkin.Controls.MaterialRaisedButton btnOriginScan;
         private MaterialSkin.Controls.MaterialFlatButton btnOriginScanStop;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        public MaterialSkin.Controls.MaterialSingleLineTextField txtOriginFolder;
+        public MaterialSkin.Controls.MaterialSingleLineTextField tbOriginFolder;
         private MaterialSkin.Controls.MaterialFlatButton btnBrowseOrigin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        public MaterialSkin.Controls.MaterialSingleLineTextField txtTestFolder;
+        public MaterialSkin.Controls.MaterialSingleLineTextField tbTestFolder;
         private MaterialSkin.Controls.MaterialFlatButton btnBrowseTest;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
@@ -1227,7 +1227,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnCalirate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private MaterialSkin.Controls.MaterialFlatButton btnBrowseGcode;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtGcodeFile;
+        private MaterialSkin.Controls.MaterialSingleLineTextField tbGcodeFile;
         private MaterialSkin.Controls.MaterialLabel gcodeFileMaterialLabel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gCodeGenerationMethodGroupBox;

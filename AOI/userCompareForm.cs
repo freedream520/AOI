@@ -38,7 +38,7 @@ namespace AOI
                 Accent.LightBlue200,
                 TextShade.WHITE);
 
-            string user_decision_file_path = parent.txtTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt";
+            string user_decision_file_path = parent.tbTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt";
             StreamReader sr = new StreamReader(user_decision_file_path);
             if (sr.ReadLine() == "undecidable")
                 btnIgnore.Enabled = false;
@@ -51,7 +51,7 @@ namespace AOI
             Button btnTemp = (Button)parent.tableLayoutPanel1.GetControlFromPosition(p.col, p.row);
             btnTemp.FlatAppearance.BorderColor = Color.Yellow;
 
-            string user_decision_file_path = parent.txtTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt";
+            string user_decision_file_path = parent.tbTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt";
             StreamWriter sw = new StreamWriter(user_decision_file_path, false);
             sw.WriteLine("ignore");
             sw.Flush();
@@ -73,7 +73,7 @@ namespace AOI
             if (btnTemp.FlatAppearance.BorderColor == Color.Yellow)
                 btnTemp.FlatAppearance.BorderColor = Color.Red;
 
-            string user_decision_file_path = parent.txtTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt";
+            string user_decision_file_path = parent.tbTestFolder.Text + "/Result/user-actions/" + im_number.ToString() + "-ud.txt";
             StreamWriter sw = new StreamWriter(user_decision_file_path, false);
             sw.WriteLine("keep");
             sw.Flush();
