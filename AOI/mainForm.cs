@@ -36,7 +36,6 @@ namespace AOI
         private delegate void SolveDelegate();
 
         Camera camera = null;
-        private PixelDataConverter converter = new PixelDataConverter();
 
         public static List<Patch> patches;
 
@@ -233,7 +232,7 @@ namespace AOI
                     startInfo.FileName = @"postprocess.exe";
                     startInfo.Arguments = $"{diff_image_address} {test_image_address} {result_image_address} " +
                         $"{tbDiffThr.Text} {tbEdgeThr.Text} {tbSizeThr.Text} " +
-                        $"{tbLeft.Text} {tbRight.Text} {tbTop.Text} {tbBottom.Text}";
+                        $"{tbMargin.Text} {tbMargin.Text} {tbMargin.Text} {tbMargin.Text}";
 
                     startInfo.RedirectStandardOutput = true;
                     startInfo.RedirectStandardError = true;
@@ -391,10 +390,7 @@ namespace AOI
             tbEdgeThr.Text = sr.ReadLine();
             tbSizeThr.Text = sr.ReadLine();
             tbExposureTime.Text = sr.ReadLine();
-            tbLeft.Text = sr.ReadLine();
-            tbRight.Text = sr.ReadLine();
-            tbTop.Text = sr.ReadLine();
-            tbBottom.Text = sr.ReadLine();
+            tbMargin.Text = sr.ReadLine();
             tbCOM.Text = sr.ReadLine();
             tbParallel.Text = sr.ReadLine();
             tbGcodeFile.Text = sr.ReadLine();
@@ -406,6 +402,7 @@ namespace AOI
         {
             if (threadOriginScan == null)
             {
+                Calirate();
                 threadOriginScan = new Thread(() => Scan("origin"));
                 threadOriginScan.Start();
                 btnOriginScan.Text = "Pause";
@@ -516,7 +513,7 @@ namespace AOI
             }
         }
 
-        private void BtnCalirate_Click(object sender, EventArgs e)
+        private void Calirate()
         {
             SerialPort sp = new SerialPort(tbCOM.Text, 250000);
             try
@@ -649,6 +646,7 @@ namespace AOI
         {
             if (threadTestScan == null)
             {
+                Calirate();
                 threadTestScan = new Thread(() => Scan("test"));
                 threadTestScan.Start();
                 btnTestScan.Text = "Pause";
@@ -663,31 +661,6 @@ namespace AOI
                 threadTestScan.Suspend();
                 btnTestScan.Text = "Resume";
             }
-        }
-
-        private void BtnSetDefault_Click(object sender, EventArgs e)
-        {
-            StreamWriter sw = new StreamWriter("default_parameters.txt");
-
-            sw.WriteLine(tbDiffThr.Text);
-            sw.WriteLine(tbEdgeThr.Text);
-            sw.WriteLine(tbSizeThr.Text);
-            sw.WriteLine(tbExposureTime.Text);
-
-            sw.WriteLine(tbLeft.Text);
-            sw.WriteLine(tbRight.Text);
-            sw.WriteLine(tbTop.Text);
-            sw.WriteLine(tbBottom.Text);
-
-            sw.WriteLine(tbCOM.Text);
-            sw.WriteLine(tbParallel.Text);
-
-            sw.WriteLine(tbGcodeFile.Text);
-            sw.WriteLine(tbOriginFolder.Text);
-            sw.WriteLine(tbTestFolder.Text);
-
-            sw.Flush();
-            sw.Close();
         }
 
         public void CompareStop()
@@ -774,55 +747,7 @@ namespace AOI
                 cts.Dispose();
             }
         }
-        public bool report_process()
-        {
-            try
-            {
-                string report_path = reportSaveFileDialog.FileName;
-                StreamWriter main_report_writer = new StreamWriter(report_path);
-                for (int i = 1; i <= get_ims_count(); i++)
-                {
-                    main_report_writer.Write("Image #" + i.ToString() + ":");
-                    StreamReader sr;
-                    string user_decision = "keep";
-                    if (File.Exists(tbTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt"))
-                    {
-                        sr = new StreamReader(tbTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt");
-                        user_decision = sr.ReadLine();
-                        sr.Close();
-                    }
-                    if (user_decision == "keep")
-                    {
-                        StreamReader report_reader = new StreamReader(tbTestFolder.Text + "/Result/defects-data/" + i.ToString() + "-dd.txt");
-                        report_reader.ReadLine(); // Skip first line (Hint)
-                        int defects_count = Convert.ToInt32(report_reader.ReadLine());
-                        main_report_writer.Write(" " + defects_count.ToString() + " defects\n");
-                        for (int j = 0; j < defects_count; j++)
-                        {
-                            string[] vals = report_reader.ReadLine().Split(' ');
-                            main_report_writer.WriteLine("  " + vals[0] + " at [" + vals[1] + ", " + vals[2] + "]");
-                            //MessageBox.Show(vals[1]);
-                        }
-                        report_reader.Close();
-                    }
-                    else
-                        main_report_writer.WriteLine();
-                    main_report_writer.WriteLine();
-                }
-                main_report_writer.Flush();
-                main_report_writer.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return true;
-        }
-        private void ReportButton_Click(object sender, EventArgs e)
-        {
-            if (validate_report_inputs() && reportSaveFileDialog.ShowDialog() == DialogResult.OK)
-                report_process();
-        }
+     
         public bool read_gcode_file(string gcode_file_path)
         {
             StreamReader gcode_file_reader = new StreamReader(tbGcodeFile.Text);
@@ -927,14 +852,73 @@ namespace AOI
                 read_gcode_file(tbGcodeFile.Text);
             return ims_count;
         }
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void btnSaveSettings_Click(object sender, EventArgs e)
+        {
+            StreamWriter sw = new StreamWriter("default_parameters.txt");
+
+            sw.WriteLine(tbDiffThr.Text);
+            sw.WriteLine(tbEdgeThr.Text);
+            sw.WriteLine(tbSizeThr.Text);
+            sw.WriteLine(tbExposureTime.Text);
+
+            sw.WriteLine(tbMargin.Text);
+            sw.WriteLine(tbCOM.Text);
+            sw.WriteLine(tbParallel.Text);
+
+            sw.WriteLine(tbGcodeFile.Text);
+            sw.WriteLine(tbOriginFolder.Text);
+            sw.WriteLine(tbTestFolder.Text);
+
+            sw.Flush();
+            sw.Close();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void btnReport_Click(object sender, EventArgs e)
         {
-
+            if (validate_report_inputs() && reportSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string report_path = reportSaveFileDialog.FileName;
+                    StreamWriter main_report_writer = new StreamWriter(report_path);
+                    for (int i = 1; i <= get_ims_count(); i++)
+                    {
+                        main_report_writer.Write("Image #" + i.ToString() + ":");
+                        StreamReader sr;
+                        string user_decision = "keep";
+                        if (File.Exists(tbTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt"))
+                        {
+                            sr = new StreamReader(tbTestFolder.Text + "/Result/user-actions/" + i.ToString() + "-ud.txt");
+                            user_decision = sr.ReadLine();
+                            sr.Close();
+                        }
+                        if (user_decision == "keep")
+                        {
+                            StreamReader report_reader = new StreamReader(tbTestFolder.Text + "/Result/defects-data/" + i.ToString() + "-dd.txt");
+                            report_reader.ReadLine(); // Skip first line (Hint)
+                            int defects_count = Convert.ToInt32(report_reader.ReadLine());
+                            main_report_writer.Write(" " + defects_count.ToString() + " defects\n");
+                            for (int j = 0; j < defects_count; j++)
+                            {
+                                string[] vals = report_reader.ReadLine().Split(' ');
+                                main_report_writer.WriteLine("  " + vals[0] + " at [" + vals[1] + ", " + vals[2] + "]");
+                                //MessageBox.Show(vals[1]);
+                            }
+                            report_reader.Close();
+                        }
+                        else
+                            main_report_writer.WriteLine();
+                        main_report_writer.WriteLine();
+                    }
+                    main_report_writer.Flush();
+                    main_report_writer.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
     }
 }

@@ -3,9 +3,6 @@
 600
 150
 50
-50
-50
-50
 COM4
 2
 d:\Users\M\Desktop\g codes\L1 Dec1st.gcode
