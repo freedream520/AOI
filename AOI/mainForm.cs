@@ -397,6 +397,8 @@ namespace AOI
             tbOriginFolder.Text = sr.ReadLine();
             tbTestFolder.Text = sr.ReadLine();
             sr.Close();
+
+            ShowGrid();
         }
         private void BtnOriginScan_Click(object sender, EventArgs e)
         {
@@ -750,20 +752,21 @@ namespace AOI
      
         public bool read_gcode_file(string gcode_file_path)
         {
-            StreamReader gcode_file_reader = new StreamReader(tbGcodeFile.Text);
-            string[] values = gcode_file_reader.ReadLine().Split(' ');
-            gcode_file_reader.Close();
-            if (values.Length != 2)
-                return false;
-            if (is_integer(values[0]) == false || is_integer(values[1]) == false)
-                return false;
             try
             {
+                StreamReader gcode_file_reader = new StreamReader(tbGcodeFile.Text);
+                string[] values = gcode_file_reader.ReadLine().Split(' ');
+                gcode_file_reader.Close();
+                if (values.Length != 2)
+                    return false;
+                if (is_integer(values[0]) == false || is_integer(values[1]) == false)
+                    return false;
+
                 cols_count = Convert.ToInt32(values[0]);
                 rows_count = Convert.ToInt32(values[1]);
                 ims_count = cols_count * rows_count;
             }
-            catch (OperationCanceledException e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }

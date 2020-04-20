@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -80,6 +81,10 @@
             this.btnSaveSettings = new FontAwesome.Sharp.IconButton();
             this.btnReport = new FontAwesome.Sharp.IconButton();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
+            this.toolTipReport = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipSave = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipHelp = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipStop = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -219,7 +224,7 @@
             this.tbMargin.SelectionLength = 0;
             this.tbMargin.SelectionStart = 0;
             this.tbMargin.Size = new System.Drawing.Size(79, 23);
-            this.tbMargin.TabIndex = 47;
+            this.tbMargin.TabIndex = 15;
             this.tbMargin.TabStop = false;
             this.tbMargin.Text = "50";
             this.tbMargin.UseSystemPasswordChar = false;
@@ -239,7 +244,7 @@
             this.tbExposureTime.SelectionLength = 0;
             this.tbExposureTime.SelectionStart = 0;
             this.tbExposureTime.Size = new System.Drawing.Size(79, 23);
-            this.tbExposureTime.TabIndex = 47;
+            this.tbExposureTime.TabIndex = 14;
             this.tbExposureTime.TabStop = false;
             this.tbExposureTime.Text = "1200";
             this.tbExposureTime.UseSystemPasswordChar = false;
@@ -259,7 +264,7 @@
             this.tbSizeThr.SelectionLength = 0;
             this.tbSizeThr.SelectionStart = 0;
             this.tbSizeThr.Size = new System.Drawing.Size(79, 23);
-            this.tbSizeThr.TabIndex = 47;
+            this.tbSizeThr.TabIndex = 13;
             this.tbSizeThr.TabStop = false;
             this.tbSizeThr.Text = "600";
             this.tbSizeThr.UseSystemPasswordChar = false;
@@ -280,7 +285,7 @@
             this.tbEdgeThr.SelectionLength = 0;
             this.tbEdgeThr.SelectionStart = 0;
             this.tbEdgeThr.Size = new System.Drawing.Size(79, 23);
-            this.tbEdgeThr.TabIndex = 47;
+            this.tbEdgeThr.TabIndex = 12;
             this.tbEdgeThr.TabStop = false;
             this.tbEdgeThr.Text = "3";
             this.tbEdgeThr.UseSystemPasswordChar = false;
@@ -301,7 +306,7 @@
             this.tbDiffThr.SelectionLength = 0;
             this.tbDiffThr.SelectionStart = 0;
             this.tbDiffThr.Size = new System.Drawing.Size(79, 23);
-            this.tbDiffThr.TabIndex = 46;
+            this.tbDiffThr.TabIndex = 11;
             this.tbDiffThr.TabStop = false;
             this.tbDiffThr.Text = "30";
             this.tbDiffThr.UseSystemPasswordChar = false;
@@ -385,7 +390,7 @@
             this.tbCOM.SelectionLength = 0;
             this.tbCOM.SelectionStart = 0;
             this.tbCOM.Size = new System.Drawing.Size(79, 23);
-            this.tbCOM.TabIndex = 50;
+            this.tbCOM.TabIndex = 16;
             this.tbCOM.TabStop = false;
             this.tbCOM.Text = "COM4";
             this.tbCOM.UseSystemPasswordChar = false;
@@ -403,7 +408,7 @@
             this.tbParallel.SelectionLength = 0;
             this.tbParallel.SelectionStart = 0;
             this.tbParallel.Size = new System.Drawing.Size(58, 23);
-            this.tbParallel.TabIndex = 54;
+            this.tbParallel.TabIndex = 17;
             this.tbParallel.TabStop = false;
             this.tbParallel.Text = "4";
             this.tbParallel.UseSystemPasswordChar = false;
@@ -421,7 +426,7 @@
             this.btnOriginScan.Name = "btnOriginScan";
             this.btnOriginScan.Primary = true;
             this.btnOriginScan.Size = new System.Drawing.Size(64, 26);
-            this.btnOriginScan.TabIndex = 46;
+            this.btnOriginScan.TabIndex = 3;
             this.btnOriginScan.Text = "Scan";
             this.btnOriginScan.UseVisualStyleBackColor = true;
             this.btnOriginScan.Click += new System.EventHandler(this.BtnOriginScan_Click);
@@ -441,8 +446,9 @@
             this.btnOriginScanStop.Name = "btnOriginScanStop";
             this.btnOriginScanStop.Primary = false;
             this.btnOriginScanStop.Size = new System.Drawing.Size(18, 20);
-            this.btnOriginScanStop.TabIndex = 48;
+            this.btnOriginScanStop.TabIndex = 4;
             this.btnOriginScanStop.Text = "■";
+            this.toolTipStop.SetToolTip(this.btnOriginScanStop, "Stop");
             this.btnOriginScanStop.UseVisualStyleBackColor = true;
             this.btnOriginScanStop.Click += new System.EventHandler(this.BtnOriginScanStop_Click);
             // 
@@ -478,7 +484,7 @@
             this.btnBrowseOrigin.Name = "btnBrowseOrigin";
             this.btnBrowseOrigin.Primary = false;
             this.btnBrowseOrigin.Size = new System.Drawing.Size(62, 20);
-            this.btnBrowseOrigin.TabIndex = 47;
+            this.btnBrowseOrigin.TabIndex = 2;
             this.btnBrowseOrigin.Text = "Browse";
             this.btnBrowseOrigin.UseVisualStyleBackColor = true;
             this.btnBrowseOrigin.Click += new System.EventHandler(this.BtnBrowseOrigin_Click);
@@ -499,7 +505,7 @@
             this.tbOriginFolder.SelectionLength = 0;
             this.tbOriginFolder.SelectionStart = 0;
             this.tbOriginFolder.Size = new System.Drawing.Size(301, 23);
-            this.tbOriginFolder.TabIndex = 46;
+            this.tbOriginFolder.TabIndex = 1;
             this.tbOriginFolder.TabStop = false;
             this.tbOriginFolder.UseSystemPasswordChar = false;
             // 
@@ -536,8 +542,9 @@
             this.btnTestScanStop.Name = "btnTestScanStop";
             this.btnTestScanStop.Primary = false;
             this.btnTestScanStop.Size = new System.Drawing.Size(18, 20);
-            this.btnTestScanStop.TabIndex = 48;
+            this.btnTestScanStop.TabIndex = 8;
             this.btnTestScanStop.Text = "■";
+            this.toolTipStop.SetToolTip(this.btnTestScanStop, "Stop");
             this.btnTestScanStop.UseVisualStyleBackColor = true;
             this.btnTestScanStop.Click += new System.EventHandler(this.BtnTestScanStop_Click);
             // 
@@ -554,7 +561,7 @@
             this.btnTestScan.Name = "btnTestScan";
             this.btnTestScan.Primary = true;
             this.btnTestScan.Size = new System.Drawing.Size(64, 26);
-            this.btnTestScan.TabIndex = 46;
+            this.btnTestScan.TabIndex = 7;
             this.btnTestScan.Text = "Scan";
             this.btnTestScan.UseVisualStyleBackColor = true;
             this.btnTestScan.Click += new System.EventHandler(this.BtnTestScan_Click);
@@ -575,7 +582,7 @@
             this.tbTestFolder.SelectionLength = 0;
             this.tbTestFolder.SelectionStart = 0;
             this.tbTestFolder.Size = new System.Drawing.Size(301, 23);
-            this.tbTestFolder.TabIndex = 46;
+            this.tbTestFolder.TabIndex = 5;
             this.tbTestFolder.TabStop = false;
             this.tbTestFolder.UseSystemPasswordChar = false;
             // 
@@ -593,7 +600,7 @@
             this.btnBrowseTest.Name = "btnBrowseTest";
             this.btnBrowseTest.Primary = false;
             this.btnBrowseTest.Size = new System.Drawing.Size(62, 20);
-            this.btnBrowseTest.TabIndex = 47;
+            this.btnBrowseTest.TabIndex = 6;
             this.btnBrowseTest.Text = "Browse";
             this.btnBrowseTest.UseVisualStyleBackColor = true;
             this.btnBrowseTest.Click += new System.EventHandler(this.BtnBrowseTest_Click);
@@ -653,7 +660,7 @@
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Primary = true;
             this.btnCompare.Size = new System.Drawing.Size(92, 26);
-            this.btnCompare.TabIndex = 46;
+            this.btnCompare.TabIndex = 21;
             this.btnCompare.Text = "Compare";
             this.btnCompare.UseVisualStyleBackColor = true;
             this.btnCompare.Click += new System.EventHandler(this.BtnCompare_Click);
@@ -673,8 +680,9 @@
             this.btnCompareStop.Name = "btnCompareStop";
             this.btnCompareStop.Primary = false;
             this.btnCompareStop.Size = new System.Drawing.Size(91, 20);
-            this.btnCompareStop.TabIndex = 48;
+            this.btnCompareStop.TabIndex = 22;
             this.btnCompareStop.Text = "■";
+            this.toolTipStop.SetToolTip(this.btnCompareStop, "Stop");
             this.btnCompareStop.UseVisualStyleBackColor = true;
             this.btnCompareStop.Click += new System.EventHandler(this.BtnCompareStop_Click);
             // 
@@ -690,7 +698,7 @@
             this.groupBox3.Size = new System.Drawing.Size(211, 276);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Compare and Report";
+            this.groupBox3.Text = "Compare";
             // 
             // rbInverseComopsitional
             // 
@@ -704,7 +712,7 @@
             this.rbInverseComopsitional.Name = "rbInverseComopsitional";
             this.rbInverseComopsitional.Ripple = true;
             this.rbInverseComopsitional.Size = new System.Drawing.Size(167, 30);
-            this.rbInverseComopsitional.TabIndex = 1;
+            this.rbInverseComopsitional.TabIndex = 19;
             this.rbInverseComopsitional.Text = "Inverse Compositional";
             this.rbInverseComopsitional.UseVisualStyleBackColor = true;
             // 
@@ -722,7 +730,7 @@
             this.rbPhaseCorrelation.Name = "rbPhaseCorrelation";
             this.rbPhaseCorrelation.Ripple = true;
             this.rbPhaseCorrelation.Size = new System.Drawing.Size(139, 30);
-            this.rbPhaseCorrelation.TabIndex = 0;
+            this.rbPhaseCorrelation.TabIndex = 18;
             this.rbPhaseCorrelation.TabStop = true;
             this.rbPhaseCorrelation.Text = "Phase Correlation";
             this.rbPhaseCorrelation.UseVisualStyleBackColor = true;
@@ -739,7 +747,7 @@
             this.cbLowResolution.Name = "cbLowResolution";
             this.cbLowResolution.Ripple = true;
             this.cbLowResolution.Size = new System.Drawing.Size(184, 30);
-            this.cbLowResolution.TabIndex = 50;
+            this.cbLowResolution.TabIndex = 20;
             this.cbLowResolution.Text = "Low Resolution Compare";
             this.cbLowResolution.UseVisualStyleBackColor = true;
             // 
@@ -798,7 +806,7 @@
             this.btnBrowseGcode.Name = "btnBrowseGcode";
             this.btnBrowseGcode.Primary = false;
             this.btnBrowseGcode.Size = new System.Drawing.Size(63, 20);
-            this.btnBrowseGcode.TabIndex = 47;
+            this.btnBrowseGcode.TabIndex = 10;
             this.btnBrowseGcode.Text = "Browse";
             this.btnBrowseGcode.UseVisualStyleBackColor = true;
             this.btnBrowseGcode.Click += new System.EventHandler(this.BtnBrowseGcode_Click);
@@ -819,7 +827,7 @@
             this.tbGcodeFile.SelectionLength = 0;
             this.tbGcodeFile.SelectionStart = 0;
             this.tbGcodeFile.Size = new System.Drawing.Size(396, 23);
-            this.tbGcodeFile.TabIndex = 46;
+            this.tbGcodeFile.TabIndex = 9;
             this.tbGcodeFile.TabStop = false;
             this.tbGcodeFile.UseSystemPasswordChar = false;
             // 
@@ -866,7 +874,8 @@
             this.btnSaveSettings.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.btnSaveSettings.Rotation = 0D;
             this.btnSaveSettings.Size = new System.Drawing.Size(28, 28);
-            this.btnSaveSettings.TabIndex = 50;
+            this.btnSaveSettings.TabIndex = 24;
+            this.toolTipSave.SetToolTip(this.btnSaveSettings, "Save Settings");
             this.btnSaveSettings.UseVisualStyleBackColor = false;
             this.btnSaveSettings.Click += new System.EventHandler(this.btnSaveSettings_Click);
             // 
@@ -884,7 +893,8 @@
             this.btnReport.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.btnReport.Rotation = 0D;
             this.btnReport.Size = new System.Drawing.Size(28, 28);
-            this.btnReport.TabIndex = 51;
+            this.btnReport.TabIndex = 23;
+            this.toolTipReport.SetToolTip(this.btnReport, "Get Report");
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
@@ -902,7 +912,8 @@
             this.btnHelp.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.btnHelp.Rotation = 0D;
             this.btnHelp.Size = new System.Drawing.Size(28, 28);
-            this.btnHelp.TabIndex = 52;
+            this.btnHelp.TabIndex = 25;
+            this.toolTipHelp.SetToolTip(this.btnHelp, "Help");
             this.btnHelp.UseVisualStyleBackColor = false;
             // 
             // mainForm
@@ -998,6 +1009,10 @@
         private FontAwesome.Sharp.IconButton btnSaveSettings;
         private FontAwesome.Sharp.IconButton btnReport;
         private FontAwesome.Sharp.IconButton btnHelp;
+        private System.Windows.Forms.ToolTip toolTipSave;
+        private System.Windows.Forms.ToolTip toolTipReport;
+        private System.Windows.Forms.ToolTip toolTipHelp;
+        private System.Windows.Forms.ToolTip toolTipStop;
     }
 }
 
